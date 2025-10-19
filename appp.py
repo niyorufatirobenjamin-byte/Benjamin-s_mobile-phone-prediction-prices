@@ -2,12 +2,15 @@ import streamlit as st
 import pandas as pd
 import pickle
 
+# Add your name / designed by line at the top
+st.markdown("### Mobile Phone Price Prediction")
+st.markdown("*Designed by Benjamin NIYORUFATIRO*")
+st.write("---")  # optional horizontal line for separation
+
 # Load saved model, scaler, and label encoders
 model = pickle.load(open("phone_model.sav", "rb"))
 scaler = pickle.load(open("scaler.sav", "rb"))
 label_encoders = pickle.load(open("encoders.sav", "rb"))
-
-st.title("Mobile Phone Price Prediction")
 
 # Dropdowns for categorical features using LabelEncoder classes
 Brand = st.selectbox("Brand", label_encoders['Brand'].classes_)
